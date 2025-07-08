@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# Telethon session
+*.session
+*.session-journal
+
+# Enviroment
+.env
