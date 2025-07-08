@@ -1,18 +1,21 @@
 from telethon import TelegramClient
 import requests
 import time
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 # --- Налаштування ---
-API_ID = 22056618
-API_HASH = 'db2bf3b16f1788d38091014befe31c0d'
-SESSION_NAME = 'mexc_price_alert'
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+SESSION_NAME = os.getenv("SESSION_NAME")
 
-CHAT_ID = -1002604238211  
-THREAD_ID = 11733 
+CHAT_ID = int(os.getenv("CHAT_ID"))
+THREAD_ID = int(os.getenv("THREAD_ID"))
 
-MEXC_SYMBOL = 'BR_USDT'
-THRESHOLD = 0.005         
-INTERVAL = 5          
+MEXC_SYMBOL = os.getenv("MEXC_SYMBOL", "BR_USDT")
+THRESHOLD = float(os.getenv("THRESHOLD", 0.005))      
+INTERVAL = int(os.getenv("INTERNAL", 5))
 
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
 
